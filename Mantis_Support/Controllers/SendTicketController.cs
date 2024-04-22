@@ -27,24 +27,6 @@ public class SendTicketController : DnnController
         var json = JsonConvert.SerializeObject(jsonBody);
         var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-        using (var client = new HttpClient())
-        {
-            client.DefaultRequestHeaders.Authorization =
-                new System.Net.Http.Headers.AuthenticationHeaderValue("Authorization", "aS-X0G5twCHlaJjdsnq0ruiugKLl5kkY");
-
-            var response = await client.PostAsync("https://fr.uni-corvinus.hu/mantis/api/rest/issues", data);
-            var result = await response.Content.ReadAsStringAsync();
-
-            if (response.IsSuccessStatusCode)
-            {
-                // Handle success
-                return Json(new { success = true, message = "Message sent!" });
-            }
-            else
-            {
-                // Handle failure
-                return Json(new { success = false, message = "Failed to send message." });
-            }
-        }
+        return Json(new { success = true, message = "You Found me! :)" });
     }
 }

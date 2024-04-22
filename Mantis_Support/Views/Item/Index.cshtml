@@ -1,5 +1,4 @@
 ﻿@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<dynamic>
-
 @using DotNetNuke.Web.Mvc.Helpers
 
 <div id="contact-form-@Dnn.ModuleContext.ModuleId">
@@ -13,7 +12,10 @@
 
         <label for="subject">Subject</label>
         <select id="subject" name="subject">
-            <!-- Dynamically generated options potentially -->
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>  
         </select>
 
         <label for="message">Message</label>
@@ -25,57 +27,41 @@
     <div id="message-status"></div>
 </div>
 
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-    var loadingMessage = "LoadingMessage";
-    var successMessage = "SuccessMessage";
-    var errorMessage = "ErrorMessage";
     $(document).ready(function () {
         $('#send-message').click(function () {
-            // Retrieve the module ID from the form's data attribute
-            var moduleId = $('#send-message-form').data('moduleid');
+            // Show a loading message
+            $('#message-status').html('Loading...').show();
 
-            // Prepare the data to be sent in the AJAX request
-            var formData = {
-                email: $('#email').val(),
-                name: $('#name').val(),
-                subject: $('#subject').val(),
-                message: $('#message').val()
-            };
+            // Simulate an AJAX request
+            setTimeout(function () {
+                // Fake API response
+                var fakeApiResponse = {
+                    success: true,
+                    message: 'Your message has been sent successfully.'
+                };
 
-            // Perform the AJAX request
-            $.ajax({
-                type: 'POST',
-                url: '/DesktopModules/Mantis_Support/Controllers/SendTicketController/SendMessage', // Adjust the URL to match your routing
-                headers: {
-                    "ModuleId": moduleId,
-                    "TabId": @Dnn.ModuleContext.TabId,
-                    "RequestVerificationToken": '@Html.AntiForgeryToken()'
-                },
-                data: formData,
-                beforeSend: function () {
-                    // Optional: Display a loading message
-                    $('#message-status').html(loadingMessage).show();
-                },
-                success: function (response) {
-                    // Handle the response from your controller
-                    if (response.success) {
-                        // Display the success message
-                        $('#message-status').html(successMessage).show();
-                    } else {
-                        // Display an error message if the operation wasn't successful
-                        $('#message-status').html(errorMessage).show();
-                    }
-                },
-                error: function (xhr, status, error) {
-                    // Handle any AJAX errors
-                    $('#message-status').html('An error occurred: ' + error).show();
-                },
-                complete: function () {
-                    // Optional: Hide the loading message or do any other cleanup
+                // Check the fake API response
+                if (fakeApiResponse.success) {
+                    // Display the success message
+                    $('#message-status').html(fakeApiResponse.message).addClass('success').removeClass('error');
+                } else {
+                    // Display an error message if the operation wasn't successful
+                    $('#message-status').html(fakeApiResponse.message).addClass('error').removeClass('success');
                 }
-            });
+            }, 1500); // Simulate network delay
+
+           
         });
     });
 </script>
+<style>
+    #message-status.success {
+        color: #28a745; /* Success color */
+    }
+
+    #message-status.error {
+        color: #dc3545; /* Error color */
+    }
+</style>
