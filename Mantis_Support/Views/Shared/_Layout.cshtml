@@ -1,5 +1,17 @@
-﻿<div id="mvcContainer-@Dnn.ActiveModule.ModuleID">
-    @RenderBody()
-</div>
+﻿@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<dynamic>
+@using DotNetNuke.Web.Mvc.Helpers
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Dnn.LocalizeString("Mantis_Support")</title>
 
+</head>
+<body>
+    <div id="mvcContainer-@Dnn.ActiveModule.ModuleID">
+        @RenderBody()
+    </div>
+</body>
+</html>

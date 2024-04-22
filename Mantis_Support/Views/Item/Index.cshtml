@@ -1,33 +1,81 @@
-﻿@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<IEnumerable< Mantis.Support.Module.Dnn.Mantis_Support.Models.Item >>
+﻿@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<dynamic>
 
-@using System.Text.RegularExpressions
 @using DotNetNuke.Web.Mvc.Helpers
 
+<div id="contact-form-@Dnn.ModuleContext.ModuleId">
+    <h2>Send Us A Message</h2>
+    <form data-moduleid="@Dnn.ModuleContext.ModuleId" id="send-message-form">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
 
-<div id="Items-@Dnn.ModuleContext.ModuleId">
-    @if (Model.Count() == 0)
-    {
-        <p>@Dnn.LocalizeString("NoItems")</p>
-    }
-    else
-    {
-        <ul class="tm_tl">
-            @foreach (var item in Model)
-            {
-                <li class="tm_t">
-                    <h3>@item.ItemName</h3>
-                    <div class="tm_td">@item.ItemDescription</div>
-                    @{
-                        if (Dnn.ModuleContext.IsEditable)
-                        {
-                            <div>
-                                <a href="@Url.Action("Edit", "Item", new {ctl = "Edit", itemId = item.ItemId})">@Dnn.LocalizeString("EditItem")</a>
-                                <a href="@Url.Action("Delete", "Item", new {itemId = item.ItemId})">@Dnn.LocalizeString("DeleteItem")</a>
-                            </div>
-                        }
-                    }
-                </li>
-            }
-        </ul>
-    }
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="subject">Subject</label>
+        <select id="subject" name="subject">
+            <!-- Dynamically generated options potentially -->
+        </select>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="button" id="send-message">Send</button>
+    </form>
+
+    <div id="message-status"></div>
 </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    var loadingMessage = "LoadingMessage";
+    var successMessage = "SuccessMessage";
+    var errorMessage = "ErrorMessage";
+    $(document).ready(function () {
+        $('#send-message').click(function () {
+            // Retrieve the module ID from the form's data attribute
+            var moduleId = $('#send-message-form').data('moduleid');
+
+            // Prepare the data to be sent in the AJAX request
+            var formData = {
+                email: $('#email').val(),
+                name: $('#name').val(),
+                subject: $('#subject').val(),
+                message: $('#message').val()
+            };
+
+            // Perform the AJAX request
+            $.ajax({
+                type: 'POST',
+                url: '/DesktopModules/Mantis_Support/Controllers/SendTicketController/SendMessage', // Adjust the URL to match your routing
+                headers: {
+                    "ModuleId": moduleId,
+                    "TabId": @Dnn.ModuleContext.TabId,
+                    "RequestVerificationToken": '@Html.AntiForgeryToken()'
+                },
+                data: formData,
+                beforeSend: function () {
+                    // Optional: Display a loading message
+                    $('#message-status').html(loadingMessage).show();
+                },
+                success: function (response) {
+                    // Handle the response from your controller
+                    if (response.success) {
+                        // Display the success message
+                        $('#message-status').html(successMessage).show();
+                    } else {
+                        // Display an error message if the operation wasn't successful
+                        $('#message-status').html(errorMessage).show();
+                    }
+                },
+                error: function (xhr, status, error) {
+                    // Handle any AJAX errors
+                    $('#message-status').html('An error occurred: ' + error).show();
+                },
+                complete: function () {
+                    // Optional: Hide the loading message or do any other cleanup
+                }
+            });
+        });
+    });
+</script>
