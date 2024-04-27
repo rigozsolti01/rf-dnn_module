@@ -1,0 +1,67 @@
+﻿/* Alap stílusok az egész modul számára */
+#contact-form {
+    font-family: Arial, sans-serif;
+    max-width: 600px; /* vagy a kívánt szélesség */
+    margin: auto;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* enyhe árnyék a látvány kedvéért */
+}
+
+    /* Az input és select elemek stílusai */
+    #contact-form input[type="text"],
+    #contact-form input[type="email"],
+    #contact-form select,
+    #contact-form textarea {
+        width: 100%; /* Teljes szélességű */
+        padding: 10px;
+        margin-bottom: 10px; /* térköz az elemek között */
+        border: 1px solid #ccc; /* szürke keret */
+        border-radius: 5px; /* kerekített sarkok */
+    }
+
+    /* A küldés gomb stílusa */
+    #contact-form button {
+        background-color: #007BFF; /* világoskék háttér */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        /* A küldés gombra mutató hover stílusa */
+        #contact-form button:hover {
+            background-color: #0056b3; /* sötétkék háttér a hover effekthez */
+        }
+
+    /* A töltő ikon animáció és megjelenés stílusai */
+    #contact-form .loading-animation {
+        display: none; /* alapból nem látható */
+        background-image: url('loading-icon.gif'); /* itt adhatod meg a töltő ikon képét */
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 50px; /* a töltő ikon magassága */
+        width: 100%; /* teljes szélességű, ha szükséges */
+    }
+
+    /* Státusz üzenetek stílusai */
+    #contact-form #message-status {
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 5px;
+        display: none; /* alapból nem látható */
+    }
+
+    /* Siker üzenet stílusa */
+    #contact-form .success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+
+    /* Hiba üzenet stílusa */
+    #contact-form .error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+    }

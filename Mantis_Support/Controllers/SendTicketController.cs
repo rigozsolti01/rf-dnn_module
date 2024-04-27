@@ -5,9 +5,20 @@ using DotNetNuke.Web.Mvc.Framework.Controllers;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 using Mantis.Support.Module.Dnn.Mantis_Support.Models;
+using System;
 
 public class SendTicketController : DnnController
 {
+    private readonly HttpClient _httpClient;
+
+    public SendTicketController()
+    {
+        _httpClient = new HttpClient();
+        // Configure the HttpClient if needed (base address, timeouts, etc.)
+    }
+
+
+
     [HttpPost]
     public async Task<ActionResult> SendMessage(TicketData formData)
     {
@@ -25,8 +36,31 @@ public class SendTicketController : DnnController
         };
 
         var json = JsonConvert.SerializeObject(jsonBody);
-        var data = new StringContent(json, Encoding.UTF8, "application/json");
+        var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-        return Json(new { success = true, message = "You Found me! :)" });
+        try
+        {
+            // Send the POST request to the Mantis API
+            HttpResponseMessage response = await _httpClient.PostAsync("https://rf.uni-corvinus.hu/mantis/api/rest/issues", content);
+
+            // Await the response and ensure it is successful
+            if (response.IsSuccessStatusCode)
+            {
+                // You can log the success or perform additional actions here if necessary
+                return Json(new { success = true, message = "Ticket successfully sent to Mantis." });
+            }
+            else
+            {
+                // Read the response content for more details and log it if necessary
+                var errorContent = await response.Content.ReadAsStringAsync();
+                // Log the error content or handle it as required
+                return Json(new { success = false, message = "Failed to send ticket to Mantis." });
+            }
+        }
+        catch (Exception ex)
+        {
+            // Log the exception
+            return Json(new { success = false, message = $"An error occurred: {ex.Message}" });
+        }
     }
 }

@@ -36,7 +36,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\bin\</OutputPath>
+    <OutputPath>..\..\..\..\bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -145,8 +145,8 @@
     <Compile Include="Components\FeatureController.cs" />
     <Compile Include="Controllers\SendTicketController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
-    <Compile Include="Models\TicketData.cs" />
     <Compile Include="Models\Settings.cs" />
+    <Compile Include="Models\TicketData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

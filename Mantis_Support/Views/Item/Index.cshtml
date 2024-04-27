@@ -12,10 +12,24 @@
 
         <label for="subject">Subject</label>
         <select id="subject" name="subject">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>  
+            <option value="Domain Registration and Management">
+                Domain Registration and Management
+            </option>
+            <option value="DNS Configuration">
+                DNS Configuration
+            </option>
+            <option value="SSL Certificates">
+                SSL Certificates
+            </option>
+            <option value="VM Performance">
+                VM Performance
+            </option>
+            <option value="VM Connectivity">
+                VM Connectivity
+            </option>
+            <option value="Security">
+                Security
+            </option>
         </select>
 
         <label for="message">Message</label>
@@ -29,32 +43,78 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+    // Function to send ticket data
+    function sendTicket(ticketData) {
+        // URL of the API endpoint
+        const apiUrl = 'https://rf.uni-corvinus.hu/mantis/api/rest/issues';
+
+        // Prepare the data payload as a JSON object
+        const jsonBody = {
+            summary: "[Domania_SUPPORT] - " + ticketData.subject,
+            description: "Sender: " + ticketData.name + "\nEmail: " + ticketData.email + "\nMessage: " + ticketData.message,
+            project: { id: 49, name: "Forró Torták" },
+            category: { id: 5, name: "Design" },
+            handler: { id: 146, name: "therigozsolti" },
+            view_state: { id: 10, name: "public" },
+            priority: { id: 30, name: "normal" },
+            severity: { id: 10, name: "kérés" },
+            reproducibility: { name: "nem próbáltam" }
+        };
+
+        // Make the AJAX POST request
+        $.ajax({
+            url: apiUrl,
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(jsonBody),
+            headers: {
+                'Authorization': 'aS-X0G5twCHlaJjdsnq0ruiugKLl5kkY' // Replace 'YOUR_API_KEY_HERE' with your actual API key
+            },
+            success: function (response) {
+                console.log('Ticket successfully sent:', response);
+                // Handle success response
+            },
+            error: function (xhr, status, error) {
+                console.log('Error sending ticket:', xhr.responseText);
+                // Handle error
+            }
+        });
+    }
+
     $(document).ready(function () {
         $('#send-message').click(function () {
-            // Show a loading message
-            $('#message-status').html('Loading...').show();
+            var moduleID = $('#send-message-form').data('moduleid');
+            var email = $('#email').val();
+            var name = $('#name').val();
+            var subject = $('#subject').val();
+            var message = $('#message').val();
 
-            // Simulate an AJAX request
-            setTimeout(function () {
-                // Fake API response
-                var fakeApiResponse = {
-                    success: true,
-                    message: 'Your message has been sent successfully.'
-                };
+            if (!email || !name || !message) {
+                $('#message-status').addClass('error').text('Please fill out all required fields.');
+                return;
+            }
 
-                // Check the fake API response
-                if (fakeApiResponse.success) {
-                    // Display the success message
-                    $('#message-status').html(fakeApiResponse.message).addClass('success').removeClass('error');
-                } else {
-                    // Display an error message if the operation wasn't successful
-                    $('#message-status').html(fakeApiResponse.message).addClass('error').removeClass('success');
-                }
-            }, 1500); // Simulate network delay
+            // Log the data to be sent
+            console.log('Sending the following data:');
+            console.log('Module ID:', moduleID);
+            console.log('Email:', email);
+            console.log('Name:', name);
+            console.log('Subject:', subject);
+            console.log('Message:', message);
 
-           
+            // Commenting out the AJAX request and just logging the data for now
+
+            sendTicket({
+                email: email,
+                name: name,
+                subject: subject,
+                message: message
+            });
+
+
         });
     });
+
 </script>
 <style>
     #message-status.success {
