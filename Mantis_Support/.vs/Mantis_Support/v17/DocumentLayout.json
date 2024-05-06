@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\LocalDNN\\DesktopModules\\MVC\\Mantis_Support_Module\\Mantis_Support\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4130D773-4930-4C21-9BCF-0C5244F585D0}|Mantis_Support.csproj|C:\\LocalDNN\\DesktopModules\\MVC\\Mantis_Support_Module\\Mantis_Support\\views\\item\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{4130D773-4930-4C21-9BCF-0C5244F585D0}|Mantis_Support.csproj|c:\\localdnn\\desktopmodules\\mvc\\mantis_support_module\\mantis_support\\views\\item\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{4130D773-4930-4C21-9BCF-0C5244F585D0}|Mantis_Support.csproj|solutionrelative:views\\item\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4130D773-4930-4C21-9BCF-0C5244F585D0}|Mantis_Support.csproj|c:\\localdnn\\desktopmodules\\mvc\\mantis_support_module\\mantis_support\\controllers\\sendticketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4130D773-4930-4C21-9BCF-0C5244F585D0}|Mantis_Support.csproj|solutionrelative:controllers\\sendticketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4130D773-4930-4C21-9BCF-0C5244F585D0}|Mantis_Support.csproj|C:\\LocalDNN\\DesktopModules\\MVC\\Mantis_Support_Module\\Mantis_Support\\Views\\Item\\Edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4130D773-4930-4C21-9BCF-0C5244F585D0}|Mantis_Support.csproj|solutionrelative:Views\\Item\\Edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4130D773-4930-4C21-9BCF-0C5244F585D0}|Mantis_Support.csproj|c:\\localdnn\\desktopmodules\\mvc\\mantis_support_module\\mantis_support\\views\\item\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4130D773-4930-4C21-9BCF-0C5244F585D0}|Mantis_Support.csproj|solutionrelative:views\\item\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{4130D773-4930-4C21-9BCF-0C5244F585D0}|Mantis_Support.csproj|c:\\localdnn\\desktopmodules\\mvc\\mantis_support_module\\mantis_support\\module.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{4130D773-4930-4C21-9BCF-0C5244F585D0}|Mantis_Support.csproj|solutionrelative:module.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4130D773-4930-4C21-9BCF-0C5244F585D0}|Mantis_Support.csproj|C:\\LocalDNN\\DesktopModules\\MVC\\Mantis_Support_Module\\Mantis_Support\\Models\\TicketData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,6 +39,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "module.css",
+              "DocumentMoniker": "C:\\LocalDNN\\DesktopModules\\MVC\\Mantis_Support_Module\\Mantis_Support\\module.css",
+              "RelativeDocumentMoniker": "module.css",
+              "ToolTip": "C:\\LocalDNN\\DesktopModules\\MVC\\Mantis_Support_Module\\Mantis_Support\\module.css",
+              "RelativeToolTip": "module.css",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAwEMAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-05-06T21:54:12.402Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\LocalDNN\\DesktopModules\\MVC\\Mantis_Support_Module\\Mantis_Support\\Views\\Item\\Edit.cshtml",
               "RelativeDocumentMoniker": "Views\\Item\\Edit.cshtml",
@@ -51,26 +64,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SendTicketController.cs",
-              "DocumentMoniker": "C:\\LocalDNN\\DesktopModules\\MVC\\Mantis_Support_Module\\Mantis_Support\\Controllers\\SendTicketController.cs",
-              "RelativeDocumentMoniker": "Controllers\\SendTicketController.cs",
-              "ToolTip": "C:\\LocalDNN\\DesktopModules\\MVC\\Mantis_Support_Module\\Mantis_Support\\Controllers\\SendTicketController.cs",
-              "RelativeToolTip": "Controllers\\SendTicketController.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAuwCEAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-27T15:18:36.031Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\LocalDNN\\DesktopModules\\MVC\\Mantis_Support_Module\\Mantis_Support\\Views\\Item\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Item\\Index.cshtml",
               "ToolTip": "C:\\LocalDNN\\DesktopModules\\MVC\\Mantis_Support_Module\\Mantis_Support\\Views\\Item\\Index.cshtml",
               "RelativeToolTip": "Views\\Item\\Index.cshtml",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAAA4AAAA9AAAA",
+              "ViewState": "AQIAAEMAAAAAAAAAAAAAwEwAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-04-22T17:59:33.803Z",
               "EditorCaption": ""

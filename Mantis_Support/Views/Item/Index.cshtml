@@ -1,7 +1,7 @@
 ﻿@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<dynamic>
 @using DotNetNuke.Web.Mvc.Helpers
 
-<div id="contact-form-@Dnn.ModuleContext.ModuleId">
+<div id="contact-form">
     <h2>Send Us A Message</h2>
     <form data-moduleid="@Dnn.ModuleContext.ModuleId" id="send-message-form">
         <label for="email">Email</label>
@@ -36,6 +36,8 @@
         <textarea id="message" name="message" required></textarea>
 
         <button type="button" id="send-message">Send</button>
+        <div id="svg-container">
+        </div>
     </form>
 
     <div id="message-status"></div>
@@ -72,6 +74,8 @@
             },
             success: function (response) {
                 console.log('Ticket successfully sent:', response);
+                $('#svg-container').hide();
+                $('#message-status').html('<p>Sikeres küldés!</p>');
                 // Handle success response
             },
             error: function (xhr, status, error) {
@@ -83,6 +87,18 @@
 
     $(document).ready(function () {
         $('#send-message').click(function () {
+            $(this).hide(); // Hide the button
+            $('#svg-container').html(`
+                <svg xmlns = "http://www.w3.org/2000/svg" viewBox = "0 0 100 100" preserveAspectRatio = "xMidYMid" width = "25" height = "25" style = "shape-rendering: auto; display: block; background: transparent;" xmlns: xlink = "http://www.w3.org/1999/xlink" >
+                <g>
+                    <circle stroke-dasharray="122.52211349000194 42.840704496667314" r="26" stroke-width="8" stroke="#49d7f7" fill="none" cy="50" cx="50">
+                        <animateTransform keyTimes="0;1" values="0 50 50;360 50 50" dur="0.78125s" repeatCount="indefinite" type="rotate" attributeName="transform"></animateTransform>
+                    </circle>
+                    <g></g>
+                </g>
+                 </svg >
+            `).show();
+
             var moduleID = $('#send-message-form').data('moduleid');
             var email = $('#email').val();
             var name = $('#name').val();
