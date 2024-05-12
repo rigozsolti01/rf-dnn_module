@@ -8,3 +8,6 @@ C:\LocalDNN\bin\Mantis_Support.pdb
 C:\LocalDNN\DesktopModules\MVC\Mantis_Support_Module\Mantis_Support\obj\Debug\Mantis_S.81814C9F.Up2Date
 C:\LocalDNN\DesktopModules\MVC\Mantis_Support_Module\Mantis_Support\obj\Debug\Mantis_Support.dll
 C:\LocalDNN\DesktopModules\MVC\Mantis_Support_Module\Mantis_Support\obj\Debug\Mantis_Support.pdb
+C:\LocalDNN\DesktopModules\bin\Mantis_Support.dll.config
+C:\LocalDNN\DesktopModules\bin\Mantis_Support.dll
+C:\LocalDNN\DesktopModules\bin\Mantis_Support.pdb

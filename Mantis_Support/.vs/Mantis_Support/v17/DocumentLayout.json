@@ -11,7 +11,7 @@
       "RelativeMoniker": "D:0:0:{4130D773-4930-4C21-9BCF-0C5244F585D0}|Mantis_Support.csproj|solutionrelative:Views\\Item\\Edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4130D773-4930-4C21-9BCF-0C5244F585D0}|Mantis_Support.csproj|c:\\localdnn\\desktopmodules\\mvc\\mantis_support_module\\mantis_support\\module.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "AbsoluteMoniker": "D:0:0:{4130D773-4930-4C21-9BCF-0C5244F585D0}|Mantis_Support.csproj|C:\\LocalDNN\\DesktopModules\\MVC\\Mantis_Support_Module\\Mantis_Support\\module.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{4130D773-4930-4C21-9BCF-0C5244F585D0}|Mantis_Support.csproj|solutionrelative:module.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
@@ -46,8 +46,7 @@
               "RelativeToolTip": "module.css",
               "ViewState": "AQIAACEAAAAAAAAAAAAAwEMAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-05-06T21:54:12.402Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-06T21:54:12.402Z"
             },
             {
               "$type": "Document",
@@ -59,8 +58,7 @@
               "RelativeToolTip": "Views\\Item\\Edit.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-27T16:31:12.274Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-27T16:31:12.274Z"
             },
             {
               "$type": "Document",
@@ -70,7 +68,7 @@
               "RelativeDocumentMoniker": "Views\\Item\\Index.cshtml",
               "ToolTip": "C:\\LocalDNN\\DesktopModules\\MVC\\Mantis_Support_Module\\Mantis_Support\\Views\\Item\\Index.cshtml",
               "RelativeToolTip": "Views\\Item\\Index.cshtml",
-              "ViewState": "AQIAAEMAAAAAAAAAAAAAwEwAAAArAAAA",
+              "ViewState": "AQIAAEYAAAAAAAAAAAAAwEwAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-04-22T17:59:33.803Z",
               "EditorCaption": ""
@@ -85,8 +83,7 @@
               "RelativeToolTip": "Models\\TicketData.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T19:07:10.74Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T19:07:10.74Z"
             },
             {
               "$type": "Document",
@@ -98,8 +95,7 @@
               "RelativeToolTip": "Properties\\AssemblyInfo.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T18:12:03.377Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T18:12:03.377Z"
             }
           ]
         }
