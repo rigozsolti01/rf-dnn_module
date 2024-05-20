@@ -1,0 +1,13 @@
+C:\LocalDNN\DesktopModules\MVC\Mantis_Support_Module\Mantis_Support\obj\Debug\Mantis_Support.csproj.AssemblyReference.cache
+C:\LocalDNN\DesktopModules\MVC\Mantis_Support_Module\Mantis_Support\obj\Debug\Mantis.Support.Module.Dnn.Mantis_Support.App_LocalResources.Settings.resources
+C:\LocalDNN\DesktopModules\MVC\Mantis_Support_Module\Mantis_Support\obj\Debug\Mantis_Support.csproj.GenerateResource.cache
+C:\LocalDNN\DesktopModules\MVC\Mantis_Support_Module\Mantis_Support\obj\Debug\Mantis_Support.csproj.CoreCompileInputs.cache
+C:\LocalDNN\bin\Mantis_Support.dll.config
+C:\LocalDNN\bin\Mantis_Support.dll
+C:\LocalDNN\bin\Mantis_Support.pdb
+C:\LocalDNN\DesktopModules\MVC\Mantis_Support_Module\Mantis_Support\obj\Debug\Mantis_S.81814C9F.Up2Date
+C:\LocalDNN\DesktopModules\MVC\Mantis_Support_Module\Mantis_Support\obj\Debug\Mantis_Support.dll
+C:\LocalDNN\DesktopModules\MVC\Mantis_Support_Module\Mantis_Support\obj\Debug\Mantis_Support.pdb
+C:\LocalDNN\DesktopModules\bin\Mantis_Support.dll.config
+C:\LocalDNN\DesktopModules\bin\Mantis_Support.dll
+C:\LocalDNN\DesktopModules\bin\Mantis_Support.pdb

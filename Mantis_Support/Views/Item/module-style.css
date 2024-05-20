@@ -1,0 +1,154 @@
+﻿body {
+    font-family: 'Roboto Mono', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 10px;
+    background-color: #070817;
+    color: white;
+    font-weight: bold;
+}
+
+#contact-form {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* White shadow outline */
+    background-color: #070817;
+    box-sizing: border-box;
+}
+
+#contact-form h2 {
+    color: #49d7f7;
+    font-weight: bold;
+}
+
+.form-description {
+    margin-bottom: 20px;
+    font-size: 1em;
+    color: white;
+    font-weight: normal; /* Not bold */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label, input, select, textarea, button {
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input, select, textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    background-color: white; /* White background */
+    color: black; /* Black text */
+}
+
+select option {
+    background-color: white; /* White background for options */
+    color: black; /* Black text for options */
+}
+
+select option:hover {
+    background-color: #49d7f7;
+    color: black;
+}
+
+textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    resize: none;
+    overflow: hidden; /* To hide the scroll bar initially */
+}
+
+button {
+    padding: 10px;
+    background-color: #007BFF; /* Light blue background */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: bold; /* Bold text */
+}
+
+button:hover {
+    background-color: #0056b3; /* Dark blue background on hover */
+}
+
+#svg-container {
+    display: none;
+    text-align: center;
+}
+
+#svg-container svg {
+    width: 50px;
+    height: 50px;
+}
+
+#svg-container svg circle {
+    stroke: #49d7f7; /* Loading circle color */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000; /* Z-index to ensure it appears above other content */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scrolling if needed */
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Center vertically and add some space at the top */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#contact-form #message-status {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    display: none; /* Initially hidden */
+}
+
+#contact-form .success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+#contact-form .error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}

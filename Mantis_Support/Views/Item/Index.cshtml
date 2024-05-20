@@ -1,0 +1,314 @@
+﻿@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<dynamic>
+@using DotNetNuke.Web.Mvc.Helpers
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <style>
+        #module-body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Roboto Mono', monospace;
+            height: 100vh;
+            margin: 0;
+            padding: 10px;
+            background-color: #070817;
+            color: white;
+            font-weight: bold;
+        }
+
+        #contact-form {
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* White shadow outline */
+            background-color: #070817;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .contact-form-title {
+            color: #49d7f7;
+            font-weight: bold;
+        }
+
+        .form-description {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: white;
+            font-weight: normal; /* Not bold */
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-label,
+        .form-input,
+        .form-select,
+        .form-textarea,
+        .form-button {
+            margin-bottom: 15px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+            background-color: white; /* White background */
+            color: black; /* Black text */
+        }
+
+            .form-select option {
+                background-color: white; /* White background for options */
+                color: black; /* Black text for options */
+            }
+
+                .form-select option:hover {
+                    background-color: #49d7f7;
+                    color: black;
+                }
+
+        .form-textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+            resize: none;
+            overflow: hidden; /* To hide the scroll bar initially */
+        }
+
+        .form-button {
+            padding: 10px;
+            background-color: #49d7f7; /* Light blue background */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            cursor: pointer;
+            font-weight: bold; /* Bold text */
+        }
+
+            .form-button:hover {
+                background-color: #0056b3; /* Dark blue background on hover */
+            }
+
+        #svg-container {
+            display: none;
+            text-align: center;
+        }
+
+            #svg-container svg {
+                width: 50px;
+                height: 50px;
+            }
+
+                #svg-container svg circle {
+                    stroke: #49d7f7; /* Loading circle color */
+                }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000; /* Z-index to ensure it appears above other content */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scrolling if needed */
+            background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+        }
+
+        .modal-content {
+            background-color: rgba(0,0,0,0.5);
+            margin: 15% auto; /* Center vertically and add some space at the top */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        #message-status {
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            display: none; /* Initially hidden */
+        }
+
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div id="module-body">
+        <div id="contact-form">
+            <h2 class="contact-form-title">Send Us A Message</h2>
+            <p class="form-description">Use this platform to send us a message about any potential problems, or just feel free to ask us a question!</p>
+            <form data-moduleid="@Dnn.ModuleContext.ModuleId" id="send-message-form" class="form-container">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="email" class="form-input" required />
+
+                <label for="name" class="form-label">Name</label>
+                <input type="text" id="name" name="name" class="form-input" required />
+
+                <label for="subject" class="form-label">Subject</label>
+                <select id="subject" name="subject" class="form-select" required>
+                    <option value="">Select a subject</option>
+                    <option value="Domain Registration and Management">Domain Registration and Management</option>
+                    <option value="DNS Configuration">DNS Configuration</option>
+                    <option value="SSL Certificates">SSL Certificates</option>
+                    <option value="VM Performance">VM Performance</option>
+                    <option value="VM Connectivity">VM Connectivity</option>
+                    <option value="Security">Security</option>
+                </select>
+
+                <label for="message" class="form-label">Message</label>
+                <textarea id="message" name="message" rows="8" class="form-textarea" required></textarea>
+
+                <div id="message-status"></div>
+
+                <button type="button" id="send-message" class="form-button">Send</button>
+                <div id="svg-container">
+                    <svg viewBox="0 0 50 50">
+                        <circle cx="25" cy="25" r="20" fill="none" stroke="black" stroke-width="5" stroke-linecap="round" stroke-dasharray="31.4 31.4" stroke-dashoffset="0">
+                            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" keyTimes="0;1" values="0 25 25;360 25 25"></animateTransform>
+                        </circle>
+                    </svg>
+                </div>
+            </form>
+        </div>
+
+        <div id="successModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeSuccess">&times;</span>
+                <p>Message sent successfully!</p>
+            </div>
+        </div>
+
+        <div id="failureModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeFailure">&times;</span>
+                <p>Failed to send the message. Please try again.</p>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            // URL of the API endpoint
+            const apiUrl = 'https://rf.uni-corvinus.hu/mantis/api/rest/issues';
+
+            // Function to send ticket data
+            async function sendTicket(ticketData) {
+                // Prepare the data payload as a JSON object
+                const jsonBody = {
+                    summary: "[Domania_SUPPORT] - " + ticketData.subject,
+                    description: "Sender: " + ticketData.name + "\nEmail: " + ticketData.email + "\nMessage: " + ticketData.message,
+                    project: { id: 49, name: "Forró Torták" },
+                    category: { id: 5, name: "Design" },
+                    handler: { id: 146, name: "therigozsolti" },
+                    view_state: { id: 10, name: "public" },
+                    priority: { id: 30, name: "normal" },
+                    severity: { id: 10, name: "kérés" },
+                    reproducibility: { name: "nem próbáltam" }
+                };
+
+                // Make the AJAX POST request
+                return $.ajax({
+                    url: apiUrl,
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(jsonBody),
+                    headers: {
+                        'Authorization': 'aS-X0G5twCHlaJjdsnq0ruiugKLl5kkY' // Replace 'YOUR_API_KEY_HERE' with your actual API key
+                    }
+                });
+            }
+
+
+            async function handleSend() {
+                let moduleID = $('#send-message-form').data('moduleid');
+                let email = $('#email').val();
+                let name = $('#name').val();
+                let subject = $('#subject').val();
+                let message = $('#message').val();
+
+                // Validate form
+                if (!email || !name || !subject || !message) {
+                    alert("All fields are required.");
+                    return;
+                }
+
+
+
+                // Show loading animation
+                $('#svg-container').show();
+                $('#send-message').prop('disabled', true);
+
+                try {
+                    await sendTicket({ email, name, subject, message });
+
+                    // Show success modal
+                    $('#successModal').show();
+                } catch (error) {
+                    // Show error modal
+                    $('#failureModal').show();
+                } finally {
+                    // Hide loading animation
+                    $('#svg-container').hide();
+                    $('#send-message').prop('disabled', false);
+                }
+            }
+
+            $(document).ready(function () {
+                $('#send-message').click(handleSend);
+
+                // Close modals on clicking the close button
+                $('.close').click(function () {
+                    $(this).parent().parent().hide();
+                });
+
+                // Close modals on clicking anywhere outside of the modal content
+                $(window).click(function (event) {
+                    if ($(event.target).is('.modal')) {
+                        $('.modal').hide();
+                    }
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
